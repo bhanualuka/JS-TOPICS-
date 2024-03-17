@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+    <script src="./d14_DOM.JS"></script>
+    <style>
+      table,
+      tr,
+      td {
+        border: 2px solid black;
+        border-collapse: 3 collapse;
+      }
+      .h4tag {
+        background-color: teal;
+        color: whitesmoke;
+        border: 2px solid yellowgreen;
+        /* box-shadow: 5px 5px 4px blueviolet; */
+      }
+      .one {
+        padding: 5px;
+      }
+      .two {
+        box-shadow: 0px 0px 40px lightgreen;
+        border-radius: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <h1 class="class1">this his h1</h1>
+    <h2 id="h2tag">
+      this is
+      <h1>h1</h1>
+      tags
+    </h2>
+    <h2>hello</h2>
+    <h2>hello</h2>
+    <h2>hello</h2>
+    <h2>hello</h2>
+    <h3>hi</h3>
+    <div class="class1"><b>div</b></div> -->
+
+    <!-- <table>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table> -->
+
+    <!-- <div id="divp"> -->
+    <p class="para1">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum iste
+      consequatur dolorem, velit tenetur veniam rem at fugit totam voluptas sunt
+      inven
+    </p>
+
+    <p class="para2">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta asperiores
+      quia voluptas odio sit, molestias id atque, ex incidunt, fugiat modi
+      quibusdam a tempora. Animi, repudiandae quasi. Pariatur, facere ullam!
+    </p>
+
+    <h3 id="h3tag">iam h3 tag</h3>
+    <h4 class="h4tag">iam h4 Element created from js</h4>
+
+    <img class="getimagee" />
+
+    <!-- </div> -->
+
+    <script>
+      // let bhanu = [
+      //   {
+      //     id: 1,
+      //     title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+      //     price: 109.95,
+      //     description:
+      //       "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+      //     category: "men's clothing",
+      //     image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+      //     rating: {
+      //       rate: 3.9,
+      //       count: 120,
+      //     },
+      //   },
+      //   {
+      //     id: 2,
+      //     title: "Mens Casual Premium Slim Fit T-Shirts ",
+      //     price: 22.3,
+      //     description:
+      //       "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
+      //     category: "men's clothing",
+      //     image:
+      //       "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+      //     rating: {
+      //       rate: 4.1,
+      //       count: 259,
+      //     },
+      //   },
+      //   {
+      //     id: 3,
+      //     title: "Mens Cotton Jacket",
+      //     price: 55.99,
+      //     description:
+      //       "great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.",
+      //     category: "men's clothing",
+      //     image: "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg",
+      //     rating: {
+      //       rate: 4.7,
+      //       count: 500,
+      //     },
+      //   },
+      //   {
+      //     id: 4,
+      //     title: "Mens Casual Slim Fit",
+      //     price: 15.99,
+      //     description:
+      //       "The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description.",
+      //     category: "men's clothing",
+      //     image: "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg",
+      //     rating: {
+      //       rate: 2.1,
+      //       count: 430,
+      //     },
+      //   },
+      //   {
+      //     id: 5,
+      //     title:
+      //       "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
+      //     price: 695,
+      //     description:
+      //       "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection.",
+      //     category: "jewelery",
+      //     image:
+      //       "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg",
+      //     rating: {
+      //       rate: 4.6,
+      //       count: 400,
+      //     },
+      //   },
+      //   {
+      //     id: 6,
+      //     title: "Solid Gold Petite Micropave ",
+      //     price: 168,
+      //     description:
+      //       "Satisfaction Guaranteed. Return or exchange any order within 30 days.Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.",
+      //     category: "jewelery",
+      //     image:
+      //       "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg",
+      //     rating: {
+      //       rate: 3.9,
+      //       count: 70,
+      //     },
+      //   },
+      // ];
+
+      // let x = document.getElementsByTagName("td");
+      // console.log(x);
+      // x[0].innerText = bhanu[0].id;
+      // x[1].innerText = bhanu[0].title;
+      // x[2].innerText = bhanu[0].price;
+
+      // x[3].innerText = bhanu[1].id;
+      // x[4].innerText = bhanu[1].title;
+      // x[5].innerText = bhanu[1].price;
+
+      // x[6].innerText = bhanu[2].id;
+      // x[7].innerText = bhanu[2].title;
+      // x[8].innerText = bhanu[2].price;
+
+      // x[9].innerText = bhanu[3].id;
+      // x[10].innerText = bhanu[3].title;
+      // x[11].innerText = bhanu[3].price;
+
+      // x[12].innerText = bhanu[4].id;
+      // x[13].innerText = bhanu[4].title;
+      // x[14].innerText = bhanu[4].price;
+      // // styling coloring
+      // (x[0].style.color = "white"),
+      //   (x[0].style.backgroundColor = "black"),
+      //   (x[1].style.color = "white"),
+      //   (x[1].style.backgroundColor = "black"),
+      //   (x[2].style.backgroundColor = "black"),
+      //   (x[2].style.color = "white");
+
+      // (x[6].style.color = "white"), (x[6].style.backgroundColor = "black");
+      // (x[7].style.color = "white"), (x[7].style.backgroundColor = "black");
+      // (x[8].style.color = "white"), (x[8].style.backgroundColor = "black");
+
+      // (x[12].style.color = "white"),
+      //   (x[12].style.backgroundColor = "black"),
+      //   (x[13].style.color = "white"),
+      //   (x[13].style.backgroundColor = "black");
+      // (x[14].style.color = "white"), (x[14].style.backgroundColor = "black");
+
+      // x[0].style.backgroundColor = "black";
+
+      // x[1].style.backgroundColor = "black";
+      // let x = document.getElementById("h2tag");
+      // console.log(x.textContent);
+      // // console.log(x.innerHTML);
+
+      // //   for (i = 0; i < x.length; i++) {
+      // //     console.log((x[i].innerHTML = "<i> hello </i>"));
+      // //   }
+      CreateElement = document.createElement("h1");
+
+      CreateElement.innerText = "iam h1 created  from js";
+      // console.log(CreateElement);
+      // gettingdiv = document.getElementById("divp");
+
+      gettingpara2 = document.getElementsByClassName("para2");
+      gettingpara2[0].style.color = "red";
+      // gettingpara2[0].innerText="na istam ra bhai"
+
+      gettingpara1 = document.getElementsByClassName("para1");
+      gettingpara1[0].style.color = "white";
+      gettingpara1[0].style.backgroundColor = "black";
+      // gettingdiv.insertBefore(CreateElement, gettingpara2[0]);
+      body = document.body;
+
+      file = body.insertBefore(CreateElement, gettingpara2[0]);
+
+      (file.style.color = "red"), (file.style.backgroundColor = "yellow");
+
+      createh2 = document.createElement("h2");
+      createh2.innerText = "hi iam h2 tag from js";
+
+      body.appendChild(createh2);
+      createh2.remove();
+      // body.removeChild(createh2);
+      // body.remove(createh2)
+      // (file.style.color = "red"), (file.style.backgroundColor = "Yellow");
+
+      createh22 = document.createElement("h2");
+      createh22.innerText = "iam h2 tag from js replaced with paragraph tag";
+
+      // body.insertBefore(createh22,gettingpara1[0])
+
+      h3tag = document.getElementById("h3tag");
+
+      h3tag.replaceChildren(createh22);
+      (h3tag.style.color = "yellow"), (h3tag.style.backgroundColor = "black");
+
+      styleElement = document.getElementById("h4tag");
+      // styleElement.innerText = "iam h4 Element created from js ";
+      // styleElement.setAttribute("class", "h4tag");
+
+      getimage = document.createElement("img");
+      // console.log(getimage);
+
+      body = document.body;
+      body.style.backgroundColor = "black";
+      body.appendChild(getimage);
+      getimage.setAttribute(
+        "src",
+        "https://th.bing.com/th?id=OIP.P-kv-mq4m4z-9P8cM1oyNQHaEK&w=333&h=187&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2"
+      );
+      getimage.setAttribute("width", "450px");
+      getimage.setAttribute("height", "300px");
+      getimage.classList.add("two");
+      console.log(gettingpara1[0].getAttribute("class"));
+
+      CreateElement.setAttribute("class", "one");
+      CreateElement.classList.add("two");
+
+      // Element.classList.add("class or id name")
+    </script>
+  </body>
+</html>

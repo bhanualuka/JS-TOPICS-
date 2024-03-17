@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+  </head>
+  <body>
+    <h1></h1>
+
+    <h2></h2>
+    <h3></h3>
+
+    <script>
+      data = localStorage.getItem("registerData");
+      console.log(data);
+
+      dataModify = JSON.parse(data);
+      console.log(dataModify);
+      display = document.getElementsByTagName("h1");
+      display2 = document.getElementsByTagName("h2");
+      display3 = document.getElementsByTagName("h3");
+
+      display[0].innerText = "Username:  " + dataModify[0].UserName;
+      display2[0].innerText = "Password:  " + dataModify[0].password;
+      display3[0].innerText = "Mobile:  " + dataModify[0].Mobile;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>local&Session Storages</title>
+  </head>
+  <body>
+    <script>
+      Array = [{ Name: "Bhanu", age: 24, height: 5.666 }];
+
+      localStorage.setItem("bhanu", JSON.stringify(Array));
+      console.log(typeof localStorage.bhanu);
+      sessionStorage.setItem("bhanuprakas", "sdlf");
+      sessionStorage.clear();
+
+      console.log(new Date());
+
+      const obj = [1, 2, 3, 4];
+
+      const value = obj.forEach((ele) => {
+        ele * 2;
+      });
+      console.log(value);
+
+      function h(e, e) {
+        console.log(e);
+      }
+
+      h(3);
+    </script>
+  </body>
+</html>

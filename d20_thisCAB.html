@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>thisCAB</title>
+  </head>
+  <body>
+    <h2 onclick="console.log(this)">this from events</h2>
+    <script>
+      //   "this, call, apply, bind"
+
+      // "this" is a keyword it represents
+
+      // this== window (in golobally)
+      // this == window(in functions)
+      // this==window( in objects)
+      // this==entire object( in object method) // when function is given as value(for key) in object then it is object method
+
+      //  call:  call is built in function which is used to call or invoake a function with including spcified "this" value, also individual arguments
+      //call() is a method used to represent  the this of other object  (changing the default nature of "this" by call() method) by this of first object by using call
+      // appply: apply() is same as call() but it takes parameters in array[]
+      // bind: bind is same as call  but it returns only defination of that function we can call that function by declaring it to a variable
+
+      //-----------------------------------------------------------------------------------------------------------------------
+      bhanu = "this represnts window in globally";
+      console.log(window);
+      // "this" in globally
+      console.log(this); // here this represents the  window becuase "this" keyword  declared globally
+      console.log(this.bhanu);
+      //-----------------------------------------------------------------------------------------------------------------------
+
+      // "this" in function
+      var bhanu = () => {
+        console.log("this represents window in functions");
+      };
+      bhanu();
+      // in functions this represents the window
+      //-----------------------------------------------------------------------------------------------------------------------
+      // "this" in events;
+
+      var h1tag = document.createElement("h1");
+      h1tag.innerText = "this form events";
+
+      bodyy = document.body;
+      bodyy.appendChild(h1tag);
+      h1tag.addEventListener("click", function () {
+        console.log(this);
+      });
+      //-----------------------------------------------------------------------------------------------------------------------
+
+      // "this" in object
+      obj = {
+        this: this,
+        name: "Bhanu",
+        age: 24,
+      };
+      console.log(this);
+      // "this" in object represents the window
+      //-----------------------------------------------------------------------------------------------------------------------
+
+      // "this" in object method
+
+      objMethod = {
+        name: "Bhanu",
+        age: 24,
+        f: function () {
+          console.log(this.age);
+          return this;
+        },
+      };
+      // console.log(objMethod.f.call());
+      console.log(objMethod.f());
+
+      // when function is given as value((for key) in object then it is known as objectMethod
+      // "this" in object method represents the entire object
+      //-----------------------------------------------------------------------------------------------------------------------
+
+      // call
+
+      obj1 = {
+        name: "Bhanu",
+        age: 24,
+        f: function (ar) {
+          //   console.log(this.age);
+          console.log(ar);
+          console.log(this);
+          return this;
+        },
+      };
+      console.log(obj1.f());
+      //   console.log(obj1.f.call(obj2));
+
+      //
+      obj2 = {
+        id: 123,
+        salary: 2000,
+        fn: function () {
+          console.log(this.id);
+          return this;
+        },
+      };
+      console.log(obj2.fn());
+
+      console.log(obj1.f.call(obj2, 8)); // here this representing other object by using method call()
+
+      // apply
+      console.log(obj1.f.apply(obj2, [1]));
+
+      // bind
+      bd = obj1.f.bind(obj2, 9);
+      console.log(bd());
+
+      // -----------------------------------------------------------------------------------------------------------------------
+
+      hello = function () {
+        console.log(this);
+      };
+
+      object = {
+        a: "hi",
+        b: 99,
+      };
+
+      hello.call(object); // manipulated the representation of this globlly( from "fucntion")  to "object"
+
+      fun = function () {
+        console.log(this);
+        console.log(this.id);
+        return this.gender;
+      };
+
+      ob = {
+        name: "bhanu",
+        id: 3,
+        gender: "male",
+      };
+
+      // fun.call(ob);
+      // console.log(fun.call(ob));
+
+      // const z = [1, 2, 3, 4, 5, 6, 7];
+      // const middleIndex = Math.floor(z.length / 2);
+      // const middleNumber = z[middleIndex];
+
+      // console.log("Middle number:", middleNumber);
+
+      var callback = () => {
+        var a = 10;
+        b = 10;
+        return a + b;
+      };
+
+      callback();
+
+      let pp = () => {
+        console.log(this);
+      };
+
+      pp();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+  </head>
+
+  <body>
+    <h1></h1>
+    <form
+      id="formvalue"
+      style="
+        margin: 50px;
+        border: 1px solid black;
+        border-radius: 8px;
+        width: 600px;
+        height: 180px;
+      "
+    >
+      <label for="userName">Enter UserName:</label>
+      <input type="text" placeholder="username" id="userName" />
+      <span
+        id="userSpan"
+        style="
+          color: rgb(207, 11, 11);
+          border: 1px solid rgb(253, 110, 110);
+          display: none;
+        "
+        >UserName should conatin 5 characters</span
+      >
+      <br />
+      <span id="userSpan" style="display: none"> Enter correct UserName</span>
+      <br />
+      <label for="password">Enter password:</label>
+      <input type="text" placeholder="password" id="password" /> <br />
+      <span
+        id="pswdSpan"
+        style="
+          color: rgb(207, 11, 11);
+          border: 1px solid rgb(253, 110, 110);
+          display: none;
+        "
+      >
+        Incorrect Password</span
+      >
+
+      <!-- <br /> -->
+      <!-- <label for="confirmPassword">ConfirmPassword:</label>
+      <input type="password" id="confirmPassword" /> -->
+      <!-- <br /> -->
+      <br />
+
+      <label for="mobileNumber">MobileNumber:</label>
+      <input type="tel" id="mobileNumber" placeholder="enter number" />
+      <span id="tel" style="color: red; border: 1px solid red; display: none">
+        Mobile number invalid
+      </span>
+      <br />
+      <br />
+      <br />
+      <input type="submit" style="margin-left: 250px" />
+    </form>
+
+    <script>
+      h1tag = document.getElementsByTagName("h1");
+      h1tag[0].innerText = "Registration form";
+      h1tag[0].style.marginLeft = "50px";
+      h1tag[0].style.fontSize = "50px";
+
+      // bodyy.appendChild(h1tag);
+
+      // gtforms = document.forms;
+      Uspan = document.getElementById("userSpan");
+      Pspan = document.getElementById("pswdSpan");
+      Mspan = document.getElementById("tel");
+
+      gtforms = document.getElementById("formvalue");
+      arrStore = [];
+      gtforms.addEventListener("submit", (event) => {
+        event.preventDefault();
+        // console.log(event);
+        console.log(event.target[0]);
+        event.target[0].value;
+        console.log(event.target[0].value);
+        console.log(event.target[1].value);
+        console.log(event.target[2].value);
+
+        if (event.target[0].value.length != 5) {
+          Uspan.style.display = "inline";
+          // event.target[0].style.border = "1px solid red";
+          return;
+        } else {
+          Uspan.style.display = "none";
+        }
+        // else {
+        //   Uspan.style.display = "none";
+        // }
+
+        if (
+          Number(event.target[1].value) ||
+          event.target[1].value.length != 6
+        ) {
+          Pspan.style.display = "inline";
+          return;
+        } else {
+          Pspan.style.display = "none";
+        }
+
+        if (event.target[2].value.length != 10) {
+          Mspan.style.display = "inline";
+          return;
+        } else {
+          Mspan.style.display = "none";
+        }
+
+        var objStore = {
+          UserName: event.target[0].value,
+          password: event.target[1].value,
+          Mobile: event.target[2].value,
+        };
+
+        arrStore.push(objStore);
+
+        localStorage.setItem("registerData", JSON.stringify(arrStore));
+        console.log(objStore);
+
+        see = confirm("enter ok to see the data");
+
+        if (see) {
+          window.location.assign("login.html");
+        }
+      });
+      // console.log(gtforms);
+      // console.log(arrStore);
+    </script>
+  </body>
+</html>

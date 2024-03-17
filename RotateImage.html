@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Evnt</title>
+    <style>
+      .button:hover {
+        background-color: lightblue;
+      }
+      /* .blog {
+        transform: rotate(180deg);
+      } */
+    </style>
+  </head>
+  <body>
+    <script>
+      var main_div = document.createElement("div");
+
+      main_div.style.textAlign = "center";
+      main_div.style.borderRadius = "50%";
+      main_div.style.marginTop = "50px";
+      //   main_div.style.transform="tra"
+
+      var image = document.createElement("img");
+      image.setAttribute("src", "../images/Circle.jpg");
+      image.style.width = "200px";
+      image.style.height = "200px";
+      //   image.setAttribute("class", "blog");
+      //   image.style.transform = "rotate(180deg)";
+      br = document.createElement("br");
+      br2 = document.createElement("br");
+
+      upbutton = document.createElement("button");
+      upbutton.innerText = "Rotate up";
+
+      upbutton.style.marginTop = "80px";
+      upbutton.style.marginRight = "150px";
+
+      upbutton.style.width = "120px";
+      upbutton.style.height = "30px";
+      upbutton.style.borderRadius = "50%";
+      upbutton.setAttribute("class", "button");
+
+      upbutton2 = document.createElement("button");
+      upbutton2.innerText = "Rotate down";
+      upbutton2.style.width = "120px";
+      upbutton2.style.height = "30px";
+      upbutton2.style.borderRadius = "50%";
+      upbutton2.setAttribute("class", "button");
+
+      body = document.body;
+      //   body.style.backgroundColor = "cornsilk";
+      body.appendChild(main_div);
+      main_div.appendChild(image);
+      main_div.appendChild(br);
+      main_div.appendChild(br2);
+
+      main_div.appendChild(upbutton);
+      main_div.appendChild(upbutton2);
+
+      upbutton.addEventListener("click", up);
+      function up() {
+        image.style.transform = "rotate(180deg)";
+      }
+
+      upbutton2.addEventListener("click", down);
+      function down() {
+        image.style.transform = "rotate(0deg)";
+      }
+    </script>
+  </body>
+</html>

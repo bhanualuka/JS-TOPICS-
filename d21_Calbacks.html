@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Callbacks</title>
+  </head>
+  <body>
+    <script>
+      // performing asynchronous by using callbacks
+      function fun1(c) {
+        console.log("iam from fun1");
+        // console.log(c);
+        // return c;
+      }
+
+      function fun2(f1) {
+        a = 10;
+        b = 10;
+        // f1(a + b);
+        f1();
+        console.log("iam from fun2");
+        // fun1();
+        return a + b;
+      }
+
+      //   t = fun2();
+      //   console.log(t);
+
+      //   console.log(fun2(fun1));
+      fun2(fun1);
+      // fun2();
+
+      // Events also a best example to perform asynchronous
+
+      var h1tag = document.createElement("h1");
+
+      h1tag.innerText = "Click me";
+
+      bodyy = document.body;
+      bodyy.appendChild(h1tag);
+
+      h1tag.addEventListener("click", cb);
+
+      function cb() {
+        console.log("Event indirectly performing Asynchronous");
+      }
+    </script>
+  </body>
+</html>

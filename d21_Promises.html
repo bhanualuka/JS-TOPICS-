@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promises</title>
+  </head>
+  <body>
+    <script>
+      // var prom = new Promise((resolve, reject) => {
+      //   a = 9;
+      //   if (a % 2 == 0) {
+      //     resolve(`${a} is even number`);
+      //   } else {
+      //     reject(`${a} is Odd number`);
+      //   }
+      // });
+
+      // prom
+      //   .then((Res) => {
+      //     console.log(Res);
+      //   })
+      //   .catch((err) => {
+      //     console.log(err);
+      //   });-
+
+      // async function hello() {
+      //   var p = await prom;
+      //   console.log(p);
+      //   return p;
+      //   console.log("Jai Bapuji maharaj");
+      //   x = await 5;
+
+      //   return x;
+      // }
+      // // hello();
+      // console.log(hello());
+      // console.log("jai sai master");
+
+      // // console.log(fetch);
+      // console.log(window);
+
+      // let promi = new Promise((success, fail) => {
+      //   var dataCame = true;
+      //   if (!dataCame) {
+      //     success("Successed");
+      //   } else {
+      //     fail("failed");
+      //   }
+      // });
+
+      // console.log(promi);
+      // promi
+      //   .then((res) => {
+      //     // console.log(res);
+      //     // console.log("Promise is Successed");
+      //   })
+      //   .catch(() => {
+      //     console.log("promise is rejected");
+      //   });
+
+      // console.log(promi);
+
+      // p.then((responseS) => {
+      //   console.log(responseS);
+      // }).catch((responseF) => {
+      //   console.log(responseF);
+      // });
+
+      // console.log(p);
+
+      var p = fetch("inform.html");
+
+      p.then((response) => {
+        response.text().then((data) => {
+          console.log(data);
+        });
+      });
+      console.log(p);
+    </script>
+  </body>
+</html>

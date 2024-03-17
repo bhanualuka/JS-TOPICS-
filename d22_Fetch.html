@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fetch</title>
+  </head>
+  <body>
+    <script>
+      function hello() {
+        var p = new Promise((resolve, reject) => {
+          if (false) {
+            resolve("Fetch successful");
+          } else {
+            reject("failed");
+          }
+        });
+        return p;
+      }
+
+      hello()
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((Fresponse) => {
+          console.log(Fresponse);
+        });
+
+      console.log(hello());
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event P(BB)</title>
+
+    <style>
+      div {
+        background-color: red;
+        width: 500px;
+        height: 500px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <button>click me</button>
+    </div>
+
+    <script>
+      divget = document.getElementsByTagName("div");
+
+      divget[0].addEventListener("click", () => {
+        console.log("parent element");
+      });
+
+      but = document.getElementsByTagName("button");
+
+      but[0].addEventListener("click", (event) => {
+        // event.stopPropagation();
+        event.stopImmediatePropagation();
+        console.log("Child element");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Closures</title>
+  </head>
+  <body>
+    <script>
+      //
+      function outer() {
+        var a = 1;
+        function inner() {
+          console.log(a);
+        }
+        return inner;
+      }
+
+      var innerFunc = outer();
+      innerFunc(); // 1
+
+      function hello() {
+        var a = 10;
+        return "hi";
+      }
+      console.log(hello());
+      //   console.log(a);
+
+      // function name() {
+      //   console.log(this);
+      // };
+
+      // name();
+
+      var callback = (b, cp) => {
+        var a = 10;
+        console.log(cp());
+        return a + b;
+      };
+
+      console.log(callback(10, pass));
+
+      function pass() {
+        return "hello world";
+        // console.log("hello world");
+      }
+
+      var callbacks = (a, b, d) => {
+        c = a + b;
+        d();
+        console.log("hello");
+        return c;
+      };
+      console.log(callbacks(10, 10, Name));
+
+      function Name() {
+        console.log("Hello hii ");
+      }
+
+      // pass(callback)
+
+      // console.log(t);
+      // console.log(pass());
+
+      /*  // Define a function that takes a callback as a parameter
+       function doSomethingAsync(callback) {
+         // Simulate an asynchronous operation, like fetching data from an API
+         setTimeout(function () {
+           // After 2 seconds, call the callback function
+           callback("Data received!");
+         }, 2000);
+       }
+
+       // Define a callback function to be passed to doSomethingAsync
+       function handleData(data) {
+         console.log("Received data:", data);
+       }
+
+       // Call the function with the callback
+       doSomethingAsync(handleData);
+
+       // Output:
+       // Received data: Data received! */
+
+      let mapp = [0, NaN, null, undefined, ""];
+ 
+      let newArray = mapp.map((values, index) => {
+        return values > 1;
+      });
+
+      console.log(newArray);
+    </script>
+  </body>
+</html>

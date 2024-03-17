@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Async and Await</title>
+  </head>
+  <body>
+    <script>
+      var p = () => {
+        return new Promise((resolve, reject) => {
+          a = 10;
+
+          if (a % 2 == 0) {
+            resolve("Successed");
+          } else {
+            reject("Unsuccessed");
+          }
+        });
+      };
+
+      // p()
+      //   .then((response) => {
+      //     console.log("Promise Successed");
+      //   })
+      //   .catch((Fresponse) => {
+      //     console.log("Promise Failed");
+      //   });
+      // console.log(p());
+
+      async function hello() {
+        var aw = await p();
+        // return aw;
+        console.log(aw);
+      }
+
+      hello();
+      // console.log(hello());
+    </script>
+  </body>
+</html>
